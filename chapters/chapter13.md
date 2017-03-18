@@ -11,6 +11,8 @@
 ### 安装
 
 + Linux 下
+  
+  先查看 SD 卡的文件格式，不是 FAT32 的需要格式化为 FAT32 ,
 
 + windows 下
 
@@ -18,6 +20,9 @@
   ![win32diskimager]()
 
 + macOS 下
+
+  先查看 SD 卡的文件格式，不是 FAT32 的需要格式化为 FAT32 ,下载 [etcher](https://etcher.io/) 并安装
+  ![etcher]()
 
 ### 配置
 
