@@ -1,0 +1,29 @@
+{
+    "plugins": [
+        "github",
+        "sharing"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/skylens"
+        },
+        "sharing": {
+            "weibo": true,
+            "facebook": false,
+            "twitter": false,
+            "google": false,
+            "instapaper": false,
+            "vk": false,
+            "all": [
+                "-weibo","-facebook","-twitter",
+                "-google","-instapaper","-vk"
+            ]
+        }
+    },
+    "author": "skylens",
+    "generator": "site",
+    "title": "我的linux学习笔记",
+    "language": "zh-hans",
+    "gitbook": "3.2.2",
+    "description": "linux相关学习笔记"
+}
