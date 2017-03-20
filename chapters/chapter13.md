@@ -46,6 +46,7 @@
   $ sudo nano /etc/apt/sources.list
   注释掉每一行的代码（也就是在前面打 #），添加
     deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free
+  $ sudo apt-get update && sudo apt-get upgrade -y
   ```
 
 + `raspi-config` 配置
@@ -53,7 +54,15 @@
   ```
   $ sudo raspi-config
   ```
++ 常用软件
 
+  ```
+  aptitude
+  htop
+  vim
+  tmux
+  git
+  ```
 ### 安装 `jdk` 
 
 ### 安装 `tomcat`
