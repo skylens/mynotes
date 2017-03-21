@@ -24,7 +24,7 @@
  $ sudo ssserver -d stop  //停止
  ```
 
-+ 在 Debian/Ubuntu 上搭[`shadowsocks`(https://github.com/shadowsocks/shadowsocks/wiki/)服务 
++ 在 Debian/Ubuntu 上搭[`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/)服务 
 
 ```bash
 $  sudo apt-get install python-pip python-dev python-m2crypto build-essential -y 
