@@ -11,7 +11,7 @@
 ### 安装
 
 + Linux 下
-  
+
   先查看 SD 卡的文件格式，不是 FAT32 的需要格式化为 FAT32 ,安装 [etcher](https://github.com/resin-io/etcher#installers)
 
   ![etcher](../pictures/etcher_ubuntu.png)
@@ -19,13 +19,13 @@
 + windows 下
 
   先查看 SD 卡的文件格式，不是 FAT32 的需要格式化为 FAT32 ,下载 [win32DiskImager](https://sourceforge.net/projects/win32diskimager/) 并安装 
-  
+
   ![win32diskimager](../pictures/win32DiskImager.png)
 
 + macOS 下
 
   先查看 SD 卡的文件格式，不是 FAT32 的需要格式化为 FAT32 ,下载 [etcher](https://etcher.io/) 并安装
- 
+
   ![etcher](../pictures/etcher_macOS.png)
 
 ### 配置(以`RASPBIAN`为例)
@@ -37,9 +37,9 @@
 + 默认的用户名和密码
 
   用户名：```pi```
-  
+
   密 码：```raspberry```
-  
+
 + [Raspberrypi源](http://shumeipai.nxez.com/2013/08/31/raspbian-chinese-software-source.html) 改用国内的源加快下载安装软件速度
 
   ```
@@ -63,6 +63,9 @@
   tmux
   git
   ```
++ [VNC 安装配置](https://www.raspberrypi.org/forums/viewtopic.php?t=74176)
+
+
 ### 安装 `jdk` 
 
 ### 安装 `tomcat`

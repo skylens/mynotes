@@ -6,8 +6,6 @@
 
 + 在 CentOS 7 上搭建[`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/)服务
 
- [安装脚本]()
-
  ```bash
  $ sudo yum update -y
  $ sudo yum install epel-release -y
