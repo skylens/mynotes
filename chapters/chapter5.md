@@ -41,7 +41,7 @@ $ fc-cache -fsv  //刷新字体缓存
 ```
 ### xelatex 编译
 
-+ xelatex 出错时，**`shift + x`** +** `Enter`** 退出
++ xelatex 出错时，**`shift + x`** + **`Enter`** 退出
 
 ### LaTex 中文文档
 
