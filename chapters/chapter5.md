@@ -30,6 +30,19 @@ $ cd Downloads/
 $ wget https://raw.githubusercontent.com/skylens/LinuxNote/master/LaTeX/pkg
 ```
 
+###  字体设置
+
+```bash
+$ /usr/share/fonts/truetype/  //如果系统默认没有字体，把字体文件拷贝到这个目录下，刷新字体缓存就有这个字体了
+$ fc-list //列出系统安装的字体
+$ fc-list :lang=zh  //列出系统安装的中文字体
+$ fc-list :lang=en  //列出系统安装的英文字体
+$ fc-cache -fsv  //刷新字体缓存
+```
+### xelatex 编译
+
++ xelatex 出错时，**`shift + x`** +** `Enter`** 退出
+
 ### LaTex 中文文档
 
 **xelatex 方式编译生成 PDF 文档**
@@ -93,7 +106,7 @@ $ pandoc filename.tex -t latex -o filename.pdf --latex-engine=xelatex
 //先转成 LaTex 再转 PDF
 $ pandoc filename.md -f markdown -t latex -s -o filename.tex  //Markdown 转 LaTex
 $ 
-``` 
+```
 
 ### 问题
 
@@ -124,7 +137,7 @@ $ sudo apt-get install lmodern -y
 * 问题二
 
   中文问题
-  
+
   [解决方法](https://github.com/tzengyuxio/pages/tree/gh-pages/pandoc)
   [https://www.afoo.me/posts/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html](https://www.afoo.me/posts/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html)
 
