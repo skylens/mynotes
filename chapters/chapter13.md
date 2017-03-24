@@ -42,7 +42,7 @@
 
 + [Raspberrypi源](http://shumeipai.nxez.com/2013/08/31/raspbian-chinese-software-source.html) 改用国内的源加快下载安装软件速度
 
-  ```
+  ```bash
   $ sudo nano /etc/apt/sources.list
   注释掉每一行的代码（也就是在前面打 #），添加
     deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main contrib non-free
@@ -51,20 +51,30 @@
 
 + `raspi-config` 配置
 
-  ```
+  ```bash
   $ sudo raspi-config
   ```
 + 常用软件
-
-  ```
+  
+  ```bash
   aptitude
   htop
   vim
   tmux
   git
+  python
+  python-pip
   ```
 + [VNC 安装配置](https://www.raspberrypi.org/forums/viewtopic.php?t=74176)
 
++ 无线网配置
+
+  ```bash
+  $ sudo su - root  //切换至 root 用户，不然没有权限
+  $ iwlist wlan0 scan | grep 'ESSID'  //查看 wifi 名称
+  $ wpa_passphrase "wifi_name" "wifi_password" >> /etc/wpa_supplicant/wpa_supplicant.conf
+  $ reboot  //重启后生效，可能要等待1分钟左右才能连接
+  ```
 
 ### 安装 `jdk` 
 
