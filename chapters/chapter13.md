@@ -11,8 +11,10 @@
 ### 格式化及烧写系统
 
 + Linux 下
-  
+
   使用 `gparted`格式化(`sudo apt-get install gparted` 安装)，格式化为 `FAT32` 格式
+
+  ![gparted](../pictures/gparted.png)
 
   先查看 SD 卡的文件格式，不是 FAT32 的需要格式化为 FAT32 ,安装 [etcher](https://github.com/resin-io/etcher#installers)
 
