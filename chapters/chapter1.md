@@ -41,6 +41,12 @@ $ sudo vim /etc/procxychains.conf
 $ sudo apt-get install python-pip
 $ sudo pip install shadowsocks
 ```
++ [图形界面版](https://github.com/shadowsocks/shadowsocks-qt5)
+```bash
+$ sudo add-apt-repository ppa:hzwhuang/ss-qt5
+$ sudo apt-get update
+$ sudo apt-get install shadowsocks-qt5
+```
 + [配置文件](https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File)
 ```bash
 $ vim node.josn
