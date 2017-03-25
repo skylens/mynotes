@@ -71,6 +71,20 @@
   ```
 + [VNC 安装配置](https://www.raspberrypi.org/forums/viewtopic.php?t=74176)
 
++ [通过 RDP 协议远程连接 raspi]（http://www.xrdp.org/）
+
+  ```bash
+  $ sudo apt-get install xrdp  //安装 xrdp
+  $ sudo reboot  //重启才能生效
+  ```
+  
+  ubuntu 上的 rdp 客户端安装及设置
+  
+  ```bash
+  $ sudo apt-get install rdesktop -y
+  $ rdesktop -g 1265x728 192.168.1.108
+  ```
+
 + 无线网配置
 
   ```bash
