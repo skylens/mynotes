@@ -106,3 +106,10 @@ $ tar -jxvf test.tar.bz2  //解压 test.tar.bz2
 $ xz -d test.tar.xz  //先解压 xz 格式
 $ tar -xvf test.tar  //再解包 tar 格式
 ```
+
+**6.查看端口占用**
+
+```bash
+$ netstat -tln  //查看哪些端口被监听了
+$ 
+```

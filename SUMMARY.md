@@ -14,7 +14,7 @@
 * [PXE+Kickstart部署无人值守安装](chapters/chapter1-10.md)
 * [VPN](chapters/chapter1-11.md)
 * [Virtualization](chapters/chapter2.md)
-* [OenStack](chapters/chapter3.md)
+* [OpenStack](chapters/chapter3.md)
 * [Docker](chapters/chapter4.md)
 * [LaTeX](chapters/chapter5.md)
 * [PHP](chapters/chapter6.md)
