@@ -47,3 +47,41 @@ print "世界, 你好！"
 ```
 
 ![](../pictures/HelloWorld.png)
+
+5.`virtualenv`
+
++安装
+
+```bash
+$ sudo pip install virtualenv
+$ sudo easy_install virtualenv
+$ sudo apt-get install python-virtualenv
+```
+
++使用
+
+```bash
+$ mkdir myproject   //新建项目目录，在该目录下使用 virtualenv
+$ . venv/bin/activate  //激活环境
+$ deactivate  //退出环境
+```
+
+6.`supervisor`
+
++安装
+
+```bash
+$ sudo apt-get install supervisor -y
+```
+
++使用
+
+```bash
+$ cd /etc/supervisor/conf.d/  //在该目录下新建配置文件
+$ sudo vim app
+  [program:app]
+  command = python /home/tux/workspaces/projects/myproject/hello.py
+  directory = /home/tux/workspaces/projects/first/
+$ sudo service supervisor restart  //重启一下服务
+$ sudo supervisor supervisorctl
+```
