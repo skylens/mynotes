@@ -26,5 +26,6 @@
 * [Git 相关](chapters/chapter12.md)
 * [树莓派](chapters/chapter13.md)
 * [JavaEE](chapters/chapter14.md)
+* [Flask](chapters/chapter15.md)
 * [其他](chapters/chapter-other.md)
 
