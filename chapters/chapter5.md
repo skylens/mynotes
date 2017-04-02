@@ -98,6 +98,7 @@ $ pdflatex latex-pdf-zh.tex
 $ wget https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb
 $ sudo gdebi pandoc-1.19.2.1-1-amd64.deb
 ```
+
 ### 转换命令
 
 ```bash
@@ -107,6 +108,17 @@ $ pandoc filename.tex -t latex -o filename.pdf --latex-engine=xelatex
 $ pandoc filename.md -f markdown -t latex -s -o filename.tex  //Markdown 转 LaTex
 $ 
 ```
+
+###中文排版
+
+*导出为 `PDF` 格式
+
+```bash
+$ pandoc filename.md -f markdown -t html -s -o filename.html  //先把Markdown转为 html
+$ pandoc -s filename.html --latex-engine=xelatex -V mainfont=文泉驿等宽正黑 -o filename.pdf  //在通过指定主要字体来导出为中文PDF
+```
+
+*导出为 `docx` 格式
 
 ### 问题
 
