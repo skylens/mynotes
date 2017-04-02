@@ -18,6 +18,13 @@
 
 [window-numbering.el](https://raw.githubusercontent.com/skylens/mydotfile/master/dot.emacs.d/lisp/window-numbering.el)
 
+## 中文字体输出
+
++[参考](http://www.bagualu.net/wordpress/archives/5396#latex环境)
+
+```bash
+$ fc-list -f "%{family}\n"  :lang=zh
+```
 
 ## LaTeX 
 
@@ -116,7 +123,9 @@ $
 ```bash
 $ pandoc filename.md -f markdown -t html -s -o filename.html  //先把Markdown转为 html
 $ pandoc -s filename.html --latex-engine=xelatex -V mainfont=文泉驿等宽正黑 -o filename.pdf  //在通过指定主要字体来导出为中文PDF
+$ pandoc --template=template.tex --latex-engine=xelatex filename.md -o filename.pdf  //Markdown直接转换为PDF格式
 ```
+
 
 *导出为 `docx` 格式
 
