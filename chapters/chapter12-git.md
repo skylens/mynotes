@@ -41,7 +41,9 @@ $ git push origin testing   //把 testing 本地分支推送到远程 testing �
  先创建 ssh 公钥和私钥，打开公钥，在 `GitHub,Coding,OSChina` SSH公钥管理页面添加公钥，然后进行测试
   
  `GitHub:  ssh -T git@github.com` 
+
  `Coding： ssh -T git@git.coding.net`
+
  `OSChina： ssh -T git@git.oschina.net`
  
  不报错则证明添加公钥成功！最后选择 SSH 方式克隆项目
