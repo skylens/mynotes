@@ -50,7 +50,7 @@ print "世界, 你好！"
 
 5.`virtualenv`
 
-+安装
++ 安装
 
 ```bash
 $ sudo pip install virtualenv
@@ -58,7 +58,7 @@ $ sudo easy_install virtualenv
 $ sudo apt-get install python-virtualenv
 ```
 
-+使用
++ 使用
 
 ```bash
 $ mkdir myproject   //新建项目目录，在该目录下使用 virtualenv
@@ -68,13 +68,13 @@ $ deactivate  //退出环境
 
 6.`supervisor`
 
-+安装
++ 安装
 
 ```bash
 $ sudo apt-get install supervisor -y
 ```
 
-+使用
++ 使用
 
 ```bash
 $ cd /etc/supervisor/conf.d/  //在该目录下新建配置文件
