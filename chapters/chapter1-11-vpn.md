@@ -34,3 +34,17 @@ $ ./configure && make -j2
 $ sudo make install
 $ sudo ldconfig
  ```
+
+# 本地使用
+
++ 运行`sslocal`
+
+```bash
+$ sudo sslocal -c config.josn
+```
+
++ 浏览器设置
+
+```bash
+$ google-chrome-stable --proxy-server="socks5://127.0.0.1:1080" &
+```
