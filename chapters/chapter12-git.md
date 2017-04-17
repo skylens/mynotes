@@ -51,7 +51,7 @@ $ git push origin testing   //把 testing 本地分支推送到远程 testing �
  + gitconfig 配置(设置用户名、用户邮箱等等)
   
   ```
-  $ git config --global user.email "skylens116@outlook.com.com"
+  $ git config --global user.email "skylens116@outlook.com"
   $ git config --global user.name "skylens"
   $ git config --global core.editor vim
   $ git config --global merge.tool vimdiff
