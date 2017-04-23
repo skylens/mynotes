@@ -40,7 +40,11 @@ $ wget https://raw.githubusercontent.com/skylens/LinuxNote/master/LaTeX/pkg
 ###  字体设置
 
 ```bash
-$ /usr/share/fonts/truetype/  //如果系统默认没有字体，把字体文件拷贝到这个目录下，刷新字体缓存就有这个字体了
+$ /usr/share/fonts/truetype/  //进入这个目录
+$ mkdir others && cd others   //创建并进入字体目录
+$ cp xxx.ttf ./               //把字体文件拷贝到这个目录下
+$ mkfontscale
+$ mkfontdir
 $ fc-list //列出系统安装的字体
 $ fc-list :lang=zh  //列出系统安装的中文字体
 $ fc-list :lang=en  //列出系统安装的英文字体
