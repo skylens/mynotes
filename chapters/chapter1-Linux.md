@@ -19,8 +19,18 @@ $ sudo passwd admin
 $ ssh-keygen -t rsa -b 4096 -C "xxxx@mail.com"  //生成的`id_rsa.pub`可以放到`coding、github、oschina`上
 $ ssh-copy-id -i <-i指定文件路径> <user>@<ip>
 ```
+**3.ssh 配置**
 
-**3.[`proxychains4`](https://github.com/rofl0r/proxychains-ng)+ [`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)代理上网**
+在`.ssh`目录下添加`config`
+
+```bash
+$ vim .ssh/config
+Host 主机别名
+    HostName 主机名或者ip 
+    User 用户名
+```
+
+**4.[`proxychains4`](https://github.com/rofl0r/proxychains-ng)+ [`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)代理上网**
 
 + 安装 `proxychains4` [下载](https://sourceforge.net/projects/proxychains-ng/)
 ```bash
@@ -68,7 +78,7 @@ $ sudo proxychains4 ping www.google.com -c 3
 $ sudo proxychains4 apt-get update 
 ```
 
-**4.ubuntu 下删除 PPA 源**
+**5.ubuntu 下删除 PPA 源**
 
 ```bash
 $ sudo add-apt-repository --remove ppa:PPA_Name/ppa
@@ -76,7 +86,7 @@ $ ls -al /etc/apt/sources.list.d
 $ sudo rm -i /etc/apt/sources.list.d/PPA_Name.list
 ```
 
-**5.解压命令**
+**6.解压命令**
 
 + zip/unzip
 
@@ -107,7 +117,7 @@ $ xz -d test.tar.xz  //先解压 xz 格式
 $ tar -xvf test.tar  //再解包 tar 格式
 ```
 
-**6.查看端口占用**
+**7.查看端口占用**
 
 ```bash
 $ netstat -tln  //查看哪些端口被监听了
