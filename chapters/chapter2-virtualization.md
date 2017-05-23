@@ -25,7 +25,7 @@ $
 * **ubuntu**
 
 ```bash
-$ sudo apt-get install qemu-kvm qemu virt-manager virt-viewer libvirt-bin
+$ sudo apt-get install qemu-kvm qemu virt-manager libvirt-bin bridge-utils
 ```
 
 3.加载`kvm`模块
