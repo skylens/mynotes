@@ -43,7 +43,7 @@ $ sudo make install-config
 ```
 + 修改配置文件
 ```bash
-$ sudo vim /etc/procxychains.conf
+$ sudo vim /etc/proxychains.conf
 再末尾加上  socks5 127.0.0.1 1080
 ```
 + ubuntu 安装 shadowsocks
