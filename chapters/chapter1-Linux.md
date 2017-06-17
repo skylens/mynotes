@@ -123,3 +123,5 @@ $ tar -xvf test.tar  //再解包 tar 格式
 $ netstat -tln  //查看哪些端口被监听了
 $ 
 ```
+
+**8**
