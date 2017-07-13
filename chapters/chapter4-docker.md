@@ -64,3 +64,13 @@ $ sudo docker run hello-world
 
 `docker run -it ubuntu bash`
 
+- 后台运行容器
+
+`docker run -d ubuntu`
+
+- 进入后台运行的容器
+
+`docker attach 33d032089db6` 连接终止，自动退出后台
+
+`docker exec -it 33d032089db6 /bin/sh`  不会退出后台
+
