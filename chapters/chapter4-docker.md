@@ -74,3 +74,10 @@ $ sudo docker run hello-world
 
 `docker exec -it 33d032089db6 /bin/sh`  不会退出后台
 
+- 修改镜像并提交到本地
+
+`docker run -it debian bash`  使用shell作修改
+
+`docker commit -m '提交说明' 797ff13c1047 debian:9.0.01`
+
+
