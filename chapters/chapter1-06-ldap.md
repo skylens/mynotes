@@ -28,7 +28,7 @@ $ sudo apt-get install slapd ldap-utils phpldapadmin -y
 $ su -
 # cd /etc/ldap/
 # vim ldap.conf
-做如下修改（ubuntu.io为域名）
+做如下修改（example.com为域名）
 
 #
 # LDAP Defaults
@@ -53,10 +53,10 @@ TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
 # dpkg-reconfigure slapd 
 
 No
-ubuntu.io
-ubuntu.io
-654321
-654321
+example.com
+example.com
+secret
+secret
 BDB
 No
 Yes
