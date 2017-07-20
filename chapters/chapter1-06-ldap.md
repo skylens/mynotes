@@ -61,6 +61,21 @@ No
 Yes
 No
 
+# vim admin.ldif
+
+dn: dc=example,dc=com
+objectClass: dcObject
+objectClass: organization
+dc: example
+o: Example Company
+
+dn: cn=admin,dc=example,dc=com
+objectClass: organizationalRole
+objectClass: top
+cn: admin
+
+# ldapadd -x -D "cn=admin, dc=example,dc=com" -w secret -f admin.ldif
+# slapcat 
 # cd /etc/phpldapadmin/
 # vim config.php
 做如下修改（192.168.42.152为本机IP地址，ubuntu.io为域名）
