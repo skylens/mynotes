@@ -1,8 +1,8 @@
 # Samba/NFS 文件共享
 
-## 
+### 
 
-## CentOS 7 安装 NFS网络文件系统
+### CentOS 7 安装 NFS网络文件系统
 
 1.安装
 
