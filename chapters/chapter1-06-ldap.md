@@ -50,6 +50,7 @@ URI	ldap://localhost:389
 TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
 
 # ldapsearch -x -b '' -s base '(objectclass=*)'   //查看根条目
+# ldapsearch -x -b "dc=example,dc=com" "(objectclass=*)"
 # dpkg-reconfigure slapd 
 
 No
@@ -75,7 +76,7 @@ objectClass: organizationalRole
 objectClass: top
 cn: admin
 
-# ldapadd -x -D "cn=admin, dc=example,dc=com" -w secret -f admin.ldif
+# ldapadd -x -D "cn=admin,dc=example,dc=com" -w secret -f admin.ldif
 # slapcat 
 # cd /etc/phpldapadmin/
 # vim config.php
