@@ -49,6 +49,7 @@ URI	ldap://localhost:389
 # TLS certificates (needed for GnuTLS)
 TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
 
+# ldapsearch -x -b '' -s base '(objectclass=*)'   //查看根条目
 # dpkg-reconfigure slapd 
 
 No
