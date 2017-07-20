@@ -63,6 +63,9 @@ No
 Yes
 No
 
+# ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/cosine.ldif
+# ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/nis.ldif
+# ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/inetorgperson.ldif
 # vim admin.ldif
 
 dn: dc=example,dc=com
@@ -80,11 +83,11 @@ cn: admin
 # slapcat 
 # cd /etc/phpldapadmin/
 # vim config.php
-做如下修改（192.168.42.152为本机IP地址，ubuntu.io为域名）
+做如下修改（192.168.42.152为本机IP地址，example.com为域名）
 
 $servers->setValue('server','host','192.168.42.152');
-$servers->setValue('server','base',array('dc=ubuntu,dc=io'));
-$servers->setValue('login','bind_id','cn=admin,dc=ubuntu,dc=io');
+$servers->setValue('server','base',array('dc=example,dc=com'));
+$servers->setValue('login','bind_id','cn=admin,dc=example,dc=com');
 
 # /etc/init.d/apache2 restart
 浏览器访问"192.168.42.152/phpldapadmin/"
