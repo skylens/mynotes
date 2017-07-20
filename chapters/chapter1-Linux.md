@@ -132,3 +132,11 @@ $
 $ find . -name "要删的文件名" -exec ls {} \;   //这样可以查看
 $ find . -name "要删的文件名" -exec rm {} \;   //把ls替换为rm就能实现递归删除了
 ```
+
+**9.lsof**
+
+```bash
+$ lsof -i :389 
+$ ps ef | grep ldap | grep -v grep
+$ nesttat -tunlp | grep 389
+```
