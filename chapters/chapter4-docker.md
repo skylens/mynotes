@@ -45,6 +45,11 @@ $ sudo docker run hello-world
 }
 ```
 
+*不用`sudo`执行`docker`命令*
+
+```shell
+$ sudo usermod -aG docker your_username   //your_username 普通用户用户名
+```
 
 *`docker` 命令*
 
