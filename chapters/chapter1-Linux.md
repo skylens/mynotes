@@ -106,7 +106,7 @@ $ tar -xvf test.tar  //解压 test.tar
 $ tar -tvf test.tar  //查看 test.tar 文件里的内容，但不解压( *.tar.gz 加 -z , *.tar.bz2 加 -j )
 $ tar -zcvf test.tar.gz test/  //打包 test 目录，并且以 gz 格式压缩
 $ tar -jcvf test.tar.bz2 test/  //打包 test 目录，并且以 bz2 格式压缩
-$ tar -zxvf test.tar.gz  //解压 test.tar.gz 
+$ tar -zxvf test.tar.gz  //解压 test.tar.gz test.tgz
 $ tar -jxvf test.tar.bz2  //解压 test.tar.bz2
 ```
 
