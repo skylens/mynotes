@@ -54,6 +54,12 @@ $ sudo vim /etc/default/rcs
 把 UTC=no 改为 UTC=yes
 ```
 
+双系统时间同步问题
+
+```shell
+$ timedatectl set-local-rtc 1 --adjust-system-clock
+````
+
 6.安装 Chrome 浏览器
 
 ```bash
