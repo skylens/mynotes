@@ -127,6 +127,7 @@ $
 ```bash
 $ pandoc filename.md -f markdown -t html -s -o filename.html  //先把Markdown转为 html
 $ pandoc -s filename.html --latex-engine=xelatex -V mainfont=文泉驿等宽正黑 -o filename.pdf  //在通过指定主要字体来导出为中文PDF
+$ pandoc -s filename.html --latex-engine=xelatex -V mainfont=Noto\ Mono -o filename1.pdf  //字体设置
 $ pandoc --template=template.tex --latex-engine=xelatex filename.md -o filename.pdf  //Markdown直接转换为PDF格式
 ```
 
