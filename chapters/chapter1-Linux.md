@@ -17,6 +17,7 @@ $ sudo passwd admin
 
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "xxxx@mail.com"  //生成的`id_rsa.pub`可以放到`coding、github、oschina`上
+$ ssh-keygen -f cloud.pem  //生成名为 cloud.pem 的密钥对
 $ ssh-copy-id -i <-i指定文件路径> <user>@<ip>
 ```
 **3.ssh 配置**
