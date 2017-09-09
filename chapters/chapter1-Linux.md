@@ -27,8 +27,11 @@ $ ssh-copy-id -i <-i指定文件路径> <user>@<ip>
 ```bash
 $ vim .ssh/config
 Host 主机别名
-    HostName 主机名或者ip 
+    HostName 主机名或者ip
+    Port 端口 
     User 用户名
+    IdentityFile 密钥文件的路径
+$ ssh 主机别名
 ```
 
 **4.[`proxychains4`](https://github.com/rofl0r/proxychains-ng)+ [`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)代理上网**
