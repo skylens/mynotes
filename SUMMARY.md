@@ -14,6 +14,7 @@
 * [PXE+Kickstart部署无人值守安装](chapters/chapter1-10-pex.md)
 * [VPN](chapters/chapter1-11-vpn.md)
 * [Virtualization](chapters/chapter2-virtualization.md)
+    * [CentOS7下安装配置KVM](chapters/chapter2-1-kvm-centos7.md)
 * [OpenStack](chapters/chapter3-openstack.md)
 * [Docker](chapters/chapter4-docker.md)
 * [LaTeX](chapters/chapter5-latex.md)
