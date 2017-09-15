@@ -14,6 +14,7 @@
 * [PXE+Kickstart部署无人值守安装](chapters/chapter1-10-pex.md)
 * [VPN](chapters/chapter1-11-vpn.md)
 * [Virtualization](chapters/chapter2-virtualization.md)
+    * [VMware Workstation使用](chapters/chapter2-0-vmware.md)
     * [CentOS下安装配置KVM](chapters/chapter2-1-kvm-centos.md)
     * [ubuntu下安装配置KVM](chapters/chapter2-2-kvm-ubuntu.md)
     * [KVM的常用命令](chapters/chapter2-3-kvm-commond.md)
