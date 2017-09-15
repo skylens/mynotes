@@ -21,6 +21,8 @@
     * [ubuntu下安装配置KVM](chapters/virtualization/chapter2-2-kvm-ubuntu.md)
     * [KVM使用](chapters/virtualization/chapter2-3-kvm-commond.md)
 * [OpenStack](chapters/chapter3-openstack.md)
+    * [DevStack](chapters/OpenStack/chapter3-0-devstack.md)
+    * [RDO](chapters/OpenStack/chapter3-1-rdo.md)
 * [Docker](chapters/chapter4-docker.md)
 * [LaTeX](chapters/chapter5-latex.md)
 * [PHP](chapters/chapter6-php.md)
