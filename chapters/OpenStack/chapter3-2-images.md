@@ -41,6 +41,7 @@ $
      Windows 虚拟机在 VMware ESXI 上使用 VMware Tools 驱动，而在 OpenStack 的 kvm 上使
      用 [virtio 驱动]()，在导出虚拟机 OVF 模板之前需要安装 [virtio 驱动 spice-guest-tools](https://www.spice-space.org/download/binaries/spice-guest-tools/)，安装完后，
      导出为 OVF 模板
+     
      ```bash
      上传 OVF 模板中的 vmdk 文件到 OpenStack 上,也可以上传到安装了 KVM 虚拟化工具的 Linux 上
      $ qemu-img convert -f vmdk Windows_vmware.vmdk -O qcow2 \
@@ -48,7 +49,7 @@ $
      使用 virt-manager 为 Windows_kvm.qcow2 添加一块 virtio 磁盘，启动 Windows ，待 Windows
      正常运行时，重启 Windows ，关闭 Windows ，删除 virtio 磁盘，将原来的磁盘总线类型改为 virtio 
      再次启动 Windows ，这时 Windows 已经正常加载 virtio 驱动了，上传镜像至 OpenStack 上
-   $ glance image-create --name windows_vmware-kvm --disk-foemat qcow2 \
+     $ glance image-create --name windows_vmware-kvm --disk-foemat qcow2 \
      --container-format ovf --is-public True --file Wwindow_kvm.qcow2
      ```
      
