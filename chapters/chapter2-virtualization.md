@@ -6,6 +6,7 @@
 
 ```bash
 $ egrep '(vmx|svm)' /proc/cpuinfo 
+$ egrep -c '(vmx|svm)' /proc/cpuinfo
 ```
 
 2.安装虚拟化软件
