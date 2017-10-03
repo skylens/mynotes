@@ -32,6 +32,13 @@ $ git push origin master  //把本地主分支推送到远程主分支
 $ git push origin testing   //把 testing 本地分支推送到远程 testing 分支
 ```
 
++ 回滚操作
+
+```shell
+$ git log  //查看提交历史
+$ git reset –hard 8ff24a6803173208f3e606e32dfcf82db9ac84d8  //回滚到某个 commit ( commit 的 hash 值)
+```
+
 3.GitHub,Coding,OSChina
 
 + 使用 `ssh` 克隆 
