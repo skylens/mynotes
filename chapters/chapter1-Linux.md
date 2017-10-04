@@ -144,3 +144,12 @@ $ lsof -i :389
 $ ps ef | grep ldap | grep -v grep
 $ nesttat -tunlp | grep 389
 ```
+
+**10.修改默认 shell**
+
+```shell
+$ echo $0   //查看当前 shell 
+$ whereis bash   //查看 bash shell 的位置
+$ chsh -s /usr/local/bin/bash  //修改默认 shell 为 bash shell , 重新登陆生效
+$ exit 
+```
