@@ -34,6 +34,16 @@ Host 主机别名
 $ ssh 主机别名
 ```
 
+例子: 为 git 账号指定密钥
+
+```shell
+$ vim .ssh/config
+host git.coding.net
+    HostName git.coding.net
+    User git
+    IdentityFile ~/.ssh/git.pem
+``` 
+
 **4.[`proxychains4`](https://github.com/rofl0r/proxychains-ng)+ [`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)代理上网**
 
 + 安装 `proxychains4` [下载](https://sourceforge.net/projects/proxychains-ng/)
