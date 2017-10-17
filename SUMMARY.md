@@ -5,7 +5,7 @@
 * [ubuntu](chapters/chapter1-01-ubuntu.md)
 * [centos](chapters/chapter1-02-centos.md)
 * [shell 脚本](chapters/chapter1-03-shell.md)
-* [awk](chapters/chapter1-04-awk.md)
+* [正则表达式](chapters/chapter1-04-regular-expression.md)
 * [LAMP/LNMP 服务](chapters/chapter1-05-lamp-lnmp.md)
     * [LAMP 服务](chapters/lanmp/chapter1-05-0-lamp.md)
     * [LNMP 服务](chapters/lanmp/chapter1-05-1-lnmp.md)
