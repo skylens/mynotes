@@ -26,6 +26,17 @@
 $ fc-list -f "%{family}\n"  :lang=zh
 ```
 
+## yasnippet
+
+![yasnippet](https://github.com/joaotavora/yasnippet)
+
+**安装**
+
+```bash
+$ sudo apt install yasnippet-snippets  //Debian      安装目录 /usr/share/yasnippet-snippets
+$ yaourt yasnippet                     //archlinux   安装目录 /usr/share/emacs/site-lisp/yas
+```
+
 ## LaTeX 
 
 ### 安装
