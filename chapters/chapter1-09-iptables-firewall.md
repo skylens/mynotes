@@ -1,5 +1,15 @@
 # IPtables 与 FireWall 防火墙
 
+### FireWall 使用
+
+```shell
+# systemctl start firewalld       //开启
+# systemctl enable firewalld      //启用
+# firewall-cmd --add-service=ssh --permanent      //允许 SSH
+# firewall-cmd --zone=public --add-port=22/tcp --permanent    //允许 22 号端口
+# firewall-cmd --reload           //重新加载配置
+```
+
 ### 切换至 iptables
 
 ```shell
