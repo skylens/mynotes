@@ -35,5 +35,6 @@
 * [树莓派](chapters/chapter13-raspberrypi.md)
 * [JavaEE](chapters/chapter14-javaee.md)
 * [Flask](chapters/chapter15-flask.md)
+* [代理](chapters/chapter16-proxy.md)
 * [其他](chapters/chapter-other.md)
 
