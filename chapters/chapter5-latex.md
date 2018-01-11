@@ -28,7 +28,7 @@ $ fc-list -f "%{family}\n"  :lang=zh
 
 ## yasnippet
 
-![yasnippet](https://github.com/joaotavora/yasnippet)
+[yasnippet](https://github.com/joaotavora/yasnippet)
 
 **安装**
 
