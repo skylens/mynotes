@@ -20,7 +20,9 @@
 
 ## 中文字体输出
 
-+[参考](http://www.bagualu.net/wordpress/archives/5396#latex环境)
+[字体安装](https://www.google.com/get/noto/help/install/)
+
+[参考](http://www.bagualu.net/wordpress/archives/5396#latex环境)
 
 ```bash
 $ fc-list -f "%{family}\n"  :lang=zh
