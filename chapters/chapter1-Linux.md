@@ -112,6 +112,13 @@ $ unzip test.zip  //解压 test.zip
 $ unzip test.zip -d testd/  //解压 test.zip 到 testd 目录
 ```
 
+*Linux下解压zip中文乱码问题*
+
+```bash
+sudo pacman -S p7zip-natspec
+7za x LaTeX2e_manual.zip
+```
+
 + tar 
 
 ```bash
