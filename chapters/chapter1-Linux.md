@@ -92,6 +92,26 @@ $ sudo proxychains4 ping www.google.com -c 3
 $ sudo proxychains4 apt-get update 
 ```
 
+**socks5 转 http**
+
++ 安装
+```bash
+sudo pacman -S privoxy
+```
++ 配置
+```bash
+sudo vim /etc/privoxy/config
+...
+listen-address 192.168.1.1:8118
+
+forward-socks5 / localhost:1080 .
+...
+```
++ 启动服务
+```bash
+sudo systemctl start privoxy.service 
+sudo systemctl status privoxy.service
+```
 **5.ubuntu 下删除 PPA 源**
 
 ```bash
