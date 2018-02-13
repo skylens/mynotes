@@ -139,6 +139,16 @@ sudo pacman -S p7zip-natspec
 7za x LaTeX2e_manual.zip
 ```
 
++ 7z
+
+```bash
+$ sudo yum install p7zip
+$ brew install p7zip
+
+$ 7za a -t7z test.7z test/   //压缩
+$ 7za x test.7z  //解压缩
+```
+
 + tar 
 
 ```bash
