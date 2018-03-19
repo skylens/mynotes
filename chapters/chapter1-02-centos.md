@@ -67,10 +67,25 @@ DNS2=202.203.132.100
 6.关闭SELinux
 
 ```bash
-$ sestatus
-$ vi /etc/selinux/config
-SELINUX=permissive
-$ setenforce permissive
+# sestatus   //查看 SELinux 的状态 
+# setenforce permissive   //临时修改为 permissive ，permissive 不需要重启，disable 需要重启
 ```
 
-7.其他
+7.关闭和禁用防火墙
+
+```bash
+# systemctl stop firewalld
+# systemctl disable firewalld
+```
+
+9.修改主机名
+
+```bash
+// www.example.com 为主机名
+# hostname www.example.com   //临时修改
+# vim /etc/sysconfig/network   //永久修改
+// 以及修改 hosts 文件，logout 登出，重新登录查看
+# hostname -fqdn
+```
+
+10.其他
