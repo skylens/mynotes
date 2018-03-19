@@ -64,11 +64,13 @@ DNS2=202.203.132.100
 # date    # 查看时间
 ```
 
-6.关闭SELinux
+6.修改 SELinux (permissive 不需要重启，disable 需要重启)
 
 ```bash
 # sestatus   //查看 SELinux 的状态 
-# setenforce permissive   //临时修改为 permissive ，permissive 不需要重启，disable 需要重启
+# setenforce permissive   //临时修改为 permissive 
+# sed -i 's/^SELINUX=.*/SELINUX=permissive/g' /etc/sysconfig/selinux   //修改配置文件
+# cat /etc/sysconfig/selinux   //查看修改情况
 ```
 
 7.关闭和禁用防火墙
@@ -85,7 +87,7 @@ DNS2=202.203.132.100
 # hostname www.example.com   //临时修改
 # vim /etc/sysconfig/network   //永久修改
 // 以及修改 hosts 文件，logout 登出，重新登录查看
-# hostname -fqdn
+# hostname -fqdn   //查看 fqdn
 ```
 
 10.其他
