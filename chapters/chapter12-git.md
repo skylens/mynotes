@@ -2,9 +2,28 @@
 
 1.git 安装
 
++ 通过软件仓库安装(但是版本比较低)
+
 ```bash
 $ sudo apt-get install git  //Debian 系
 $ sudo yum install git  // CentOS 系
+```
+
++ 编译安装(获得较新的版本)
+
+```bash
+// CentOS 系
+sudo yum groupinstall "Development Tools"
+sudo yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel wget
+// Debian 系
+sudo apt-get install libssl-dev libcurl4-gnutls-dev wget
+wget --no-check-certificate https://github.com/git/git/archive/v2.16.2.tar.gz
+tar -xvf v2.16.2.tar.gz
+cd git-*
+make configure
+./configure --prefix=/usr/local
+sudo make install
+git --version
 ```
 
 2.git 使用
