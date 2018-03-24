@@ -19,9 +19,23 @@ $ curl -sSL https://git.io/vddVc | sh
 
 wc 
 
-sed
+## sed 流处理编辑器、行处理
 
-grep
++ 原则
+
+a、sed一次只处理一行内容 
+
+b、sed不改变文件内容( 除非重定向 )
+
++ 
+
+## grep 字符匹配
+
+```bash
+$ grep '1' test   //筛选出 test 中含 1 的内容
+$ grep '[0-9]' test   //筛选出 test 中含从 0 到 9 的内容
+$ grep '[^0-9]' test   //筛选出 test 中 0 到 9 之外的内容
+```
 
 egrep
 
