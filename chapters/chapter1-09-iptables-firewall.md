@@ -5,9 +5,12 @@
 ```shell
 # systemctl start firewalld       //开启
 # systemctl enable firewalld      //启用
-# firewall-cmd --add-service=ssh --permanent      //允许 SSH
-# firewall-cmd --zone=public --add-port=22/tcp --permanent    //允许 22 号端口
+# firewall-cmd --permanent --add-service=ssh       //允许 SSH
+# firewall-cmd --permanent --zone=public --add-port=22/tcp    //允许 22 号端口
+# firewall-cmd --permanent --zone=public --add-port=80/tcp --add-port=80/udp   //开放80 tcp udp 端口
 # firewall-cmd --reload           //重新加载配置
+# firewall-cmd --zone=public --list-ports   //显示当前开放的端口
+# firewall-cmd --zone=public --list-service   //显示当前开放的服务
 ```
 
 ### 切换至 iptables
