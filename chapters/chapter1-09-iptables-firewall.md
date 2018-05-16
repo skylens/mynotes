@@ -18,6 +18,7 @@
 # firewall-cmd --complete-reload
 # firewall-cmd --zone=public --list-ports       //显示当前开放的端口
 # firewall-cmd --zone=public --list-service     //显示当前开放的服务
+# firewall-cmd --zone=public --list-all 
 ```
 
 ### 切换至 iptables
