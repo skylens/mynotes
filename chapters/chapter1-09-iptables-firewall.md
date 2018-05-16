@@ -5,12 +5,19 @@
 ```shell
 # systemctl start firewalld       //开启
 # systemctl enable firewalld      //启用
-# firewall-cmd --permanent --add-service=ssh       //允许 SSH
-# firewall-cmd --permanent --zone=public --add-port=22/tcp    //允许 22 号端口
+# systemctl stop firewalld        //关闭
+# systemctl disable firewalld     //禁用
+# firewall-cmd --permanent --add-service=ssh                                   //允许 SSH
+# firewall-cmd --permanent --zone=public --add-port=22/tcp                     //允许 22 号端口
 # firewall-cmd --permanent --zone=public --add-port=80/tcp --add-port=80/udp   //开放80 tcp udp 端口
-# firewall-cmd --reload           //重新加载配置
-# firewall-cmd --zone=public --list-ports   //显示当前开放的端口
-# firewall-cmd --zone=public --list-service   //显示当前开放的服务
+# firewall-cmd --permanent --zone=public --add-port=60000-61000/udp             //开放60000到61000的端口范围
+# firewall-cmd --zone=public --query-port=80/tcp                    //检查是否生效
+# firewall-cmd --permanent --zone=public --remove-port=80/tcp                   //删除端口
+# firewall-cmd --permanent --zone=public --remove-service=ftp                  //删除 ftp 服务
+# firewall-cmd --reload                         //重新加载配置
+# firewall-cmd --complete-reload
+# firewall-cmd --zone=public --list-ports       //显示当前开放的端口
+# firewall-cmd --zone=public --list-service     //显示当前开放的服务
 ```
 
 ### 切换至 iptables
@@ -34,4 +41,12 @@
 # iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to 1.2.3.4        //SNAT改变源地址为1.2.3.4
 # iptables -t nat -A PREROUTING -p tcp -i eth2 -d 1.2.3.4 --dport 80 -j DNAT --to 192.168.3.88:80   //DNAT
 # iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE               //在 eth0 上开启地址伪装
+```
+
++ 初始化操作，通过配置文件存储防火墙规则
+
+```sh
+# iptables -P OUTPUT ACCEPT
+# service iptables save
+# vim /etc/sysconfig/iptables
 ```
