@@ -1,20 +1,13 @@
 # Docker
 
-*ubuntu*
+[一般安装](https://docs.docker.com/install/)
 
-[ubuntu 安装](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+使用 `get-docker.sh` 脚本安装
 
-```shell
-$ sudo apt-get update
-$ sudo apt-get install apt-transport-https ca-certificates
-$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-$ sudo echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list
-$ sudo apt-get update
-$ sudo apt-get install docker-engine
-$ sudo service docker start
-$ sudo docker run hello-world
+```sh
+# curl -fsSL get.docker.com -o get-docker.sh
+# sh get-docker.sh --mirror Aliyun
 ```
-
 
 *`docker`链接*
 
@@ -34,6 +27,8 @@ $ sudo docker run hello-world
 *`docker`设置*
 
 - 设置加速器
+
+[阿里云](https://cr.console.aliyun.com/#/accelerator)
 
 ```shell
 # vim /etc/docker/daemon.json
