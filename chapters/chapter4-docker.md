@@ -64,6 +64,14 @@ $ sudo usermod -aG docker your_username   //your_username 普通用户用户名
 
 `docker run -it ubuntu bash`
 
+- 运行镜像并映射端口
+
+`docker run -it -p 81:4000 ruby bash`
+
+- 运行镜像并映射本地目录
+
+`docker run -it -v /opt/docker/:/opt/ ruby bash`
+
 - 后台运行容器
 
 `docker run -d ubuntu`
