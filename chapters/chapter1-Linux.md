@@ -3,6 +3,7 @@
 **1.添加用户**
 
 * `adduser`
+
 ```bash
 $ sudo adduser admin
 ```
@@ -20,6 +21,7 @@ $ ssh-keygen -t rsa -b 4096 -C "xxxx@mail.com"  //生成的`id_rsa.pub`可以放
 $ ssh-keygen -f cloud.pem  //生成名为 cloud.pem 的密钥对
 $ ssh-copy-id -i <-i指定文件路径> <user>@<ip>
 ```
+
 **3.ssh 配置**
 
 在`.ssh`目录下添加`config`
@@ -36,7 +38,7 @@ $ ssh 主机别名
 
 例子: 为 git 账号指定密钥
 
-```shell
+```bash
 $ vim .ssh/config
 host git.coding.net
     HostName git.coding.net
@@ -47,6 +49,7 @@ host git.coding.net
 **4.[`proxychains4`](https://github.com/rofl0r/proxychains-ng)+ [`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)代理上网**
 
 + 安装 `proxychains4` [下载](https://sourceforge.net/projects/proxychains-ng/)
+
 ```bash
 $ tar -jxvf proxychains-4.10.tar.bz2
 $ cd proxychains-4.10
@@ -55,23 +58,31 @@ $ make
 $ sudo make install 
 $ sudo make install-config
 ```
+
 + 修改配置文件
+
 ```bash
 $ sudo vim /etc/proxychains.conf
 再末尾加上  socks5 127.0.0.1 1080
 ```
+
 + ubuntu 安装 shadowsocks
+
 ```bash
 $ sudo apt-get install python-pip
 $ sudo pip install shadowsocks
 ```
+
 + [图形界面版](https://github.com/shadowsocks/shadowsocks-qt5)
+
 ```bash
 $ sudo add-apt-repository ppa:hzwhuang/ss-qt5
 $ sudo apt-get update
 $ sudo apt-get install shadowsocks-qt5
 ```
+
 + [配置文件](https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File)
+
 ```bash
 $ vim node.josn
 {
@@ -85,7 +96,9 @@ $ vim node.josn
     "fast_open": false
 }
 ```
+
 + 使用方法
+
 ```bash
 $ sudo sslocal -c node.json (Ctrl + c 结束 shadowsocks 代理)
 $ sudo proxychains4 ping www.google.com -c 3
@@ -95,23 +108,29 @@ $ sudo proxychains4 apt-get update
 **socks5 转 http**
 
 + 安装
+
 ```bash
 sudo pacman -S privoxy
 ```
+
 + 配置
+
 ```bash
 sudo vim /etc/privoxy/config
 ...
 listen-address 192.168.1.1:8118
 
-forward-socks5 / localhost:1080 .
+forward-socks5 / localhost:1080
 ...
 ```
+
 + 启动服务
+
 ```bash
 sudo systemctl start privoxy.service 
 sudo systemctl status privoxy.service
 ```
+
 **5.ubuntu 下删除 PPA 源**
 
 ```bash
