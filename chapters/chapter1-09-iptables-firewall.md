@@ -34,6 +34,7 @@
 ### 使用 iptables
 
 ```shell
+# iptables -L -n                                                    //查看本机iptables设置情况
 # iptables -F                                                       //清除所有规则
 # iptables -t nat -F                                                //清除 nat 表中的所有规则
 # iptables -t filter -p INPUT ACCEPT
