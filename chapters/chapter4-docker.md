@@ -13,6 +13,8 @@
 
 [官方安装文档](https://docs.docker.com/engine/installation/linux/)
 
+[中国官方文档](https://docs.docker-cn.com/)
+
 [Docker Hub 镜像中心](https://hub.docker.com/)
 
 [daocloud 加速器](https://www.daocloud.io/mirror#accelerator-doc)
@@ -30,13 +32,12 @@
 
 [阿里云](https://cr.console.aliyun.com/#/accelerator)
 
+[docker 中国](http://docker-cn.com/registry-mirror)
+
 ```shell
 # vim /etc/docker/daemon.json
 {
-    "registry-mirrors": [
-        "加速地址"
-    ],
-    "insecure-registries": []
+  "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 ```
 
