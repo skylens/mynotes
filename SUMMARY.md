@@ -13,7 +13,7 @@
 * [FTP 文件传输](chapters/chapter1-07-ftp.md)
 * [Samba/NTFS 文件共享](chapters/chapter1-08-samba-ntfs.md)
 * [IPtables 与 FireWall 防火墙](chapters/chapter1-09-iptables-firewall.md)
-* [自动化安装](chapters/autoinstall/chapter1-10-1.md)
+* [自动化安装](chapters/autoinstall/chapter1-10.md)
     * [cobbler 安装](chapters/autoinstall/chapter1-10-cobbler.md)    
     * [PXE+Kickstart部署无人值守安装](chapters/autoinstall/chapter1-10-pex.md)
 * [VPN](chapters/chapter1-11-vpn.md)
