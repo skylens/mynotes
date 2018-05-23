@@ -2,6 +2,8 @@
 
 ### FireWall 使用
 
+[参考](https://fedoraproject.org/wiki/FirewallD/zh-cn)
+
 ```shell
 # systemctl start firewalld       //开启
 # systemctl enable firewalld      //启用
