@@ -1,151 +1,236 @@
-# PXE+Kickstart部署无人值守安装
+# [Cobbler](https://cobbler.github.io/) 安装配置
+
+### 环境 CentOS 7
 
 * 准备
 
-    + PXE 服务器网络配置
-    
-    ```bash
-    # cat /etc/sysconfig/network-scripts/ifcfg-eno16777736
-    
-    TYPE="Ethernet"
-    BOOTPROTO="none"
-    DEFROUTE="yes"
-    IPV4_FAILURE_FATAL="no"
-    IPV6INIT="yes"
-    IPV6_AUTOCONF="yes"
-    IPV6_DEFROUTE="yes"
-    IPV6_FAILURE_FATAL="no"
-    NAME="eno16777736"
-    UUID="ecd3fa55-276e-4933-a1a9-c2e63208d28f"
-    DEVICE="eno16777736"
-    ONBOOT="yes"
-    IPADDR="192.168.100.250"
-    PREFIX="24"
-    GATEWAY="192.168.100.2"
-    DNS1="192.168.100.2"
-    IPV6_PEERDNS="yes"
-    IPV6_PEERROUTES="yes"
-    IPV6_PRIVACY="no"
-    ```
-    + 安装`vim net-tools`
-    
-1.关闭`SELinux`
+1. 禁用 `selinux` 
 
 ```bash
-# setenforce 0  临时关闭
-# vi /etc/selinux/config  修改配置文件永久关闭
-...
-SELINUX=disabled
-...
-(更改第七行)
+setenforce 0;sed -i '/SELINUX/s/enforcing/disabled/' /etc/selinux/config;sestatus
 ```
 
-2.安装`DHCP、tftp-server、xinetd、vsftp、syslinux`
+2. 设置 `firewalld` 或者禁用
 
 ```bash
-# yum install -y dhcp xinetd tftp-server vsftp syslinux
+firewall-cmd --add-service={tftp,http} --permanent
+firewall-cmd --add-port={25150/tcp,25151/tcp} --permanent
+firewall-cmd --relaod
 ```
 
-3. 配置 DHCP
+禁用
 
 ```bash
-# vim /etc/dhcp/dhcpd.conf 
-
-allow booting;
-allow bootp;
-ddns-update-style interim;
-ignore client-updates;
-subnet 192.168.100.0 netmask 255.255.255.0 {
-        option subnet-mask      255.255.255.0;
-        option domain-name-servers  192.168.100.250;
-        range dynamic-bootp 192.168.100.100 192.168.100.200;
-        default-lease-time      21600;
-        max-lease-time          43200;
-        next-server             192.168.100.250;
-        filename                "pxelinux.0";
-}
-
+systemctl disable firewalld;systemctl stop firewalld
 ```
 
-4.配置 tftp
+3. 设置静态 IP 地址
 
 ```bash
-# vim /etc/xinetd.d/tftp
 
-//将disable的值修改为no
+IPADDR=192.168.99.254
+GATEWAY=192.168.99.254
+NETMASK=255.255.255.0
+DNS1=114.114.114.114
+DNS2=223.5.5.5
 
-service tftp
-{
-···       
-        disable                 = no
-···
-}
+/etc/init.d/network restart
 ```
 
-5.配置 syslinux
+4. 设置软件源，并安装必要软件
 
 ```bash
-# cd /var/lib/tftpboot
-
-# cp /usr/share/syslinux/pxelinux.0 ./
-
-# cp /CentOS7/images/pxeboot/{vmlinuz,initrd.img} ./  将 images 目录下的 vmlinuz 和 initrd.img 拷贝到 /var/lib/tftpboot 目录下; CentOS7 是镜像的总目录
-
-# cp /CentOS7/isolinux/{vesamenu.c32,boot.msg} ./  将 images 目录下的 vesamenu.c32 和 boot.msg 拷贝到 /var/lib/tftpboot 目录下; CentOS7 是镜像的总目录
-
-# mkdir pxelinux.cfg/
-
-# cp /CentOS7/isolinux/isolinux.cfg pxelinux.cfg/default  拷贝引导模板; CentOS7 是镜像的总目录
-
-# vim pxelinux.cfg/default
-//将第1行修改为：
-default linux
-//将第64行修改为：
-append initrd=initrd.img inst.stage2=ftp://192.168.100.250 ks=ftp://192.168.100.250/pub/ks.cfg quiet
-//将第70行修改为：
-append initrd=initrd.img inst.stage2=ftp://192.168.100.250 rd.live.check ks=ftp://192.168.100.250/pub/ks.cfg quiet
-
-# cp -r /CentOS7/* /var/ftp/  将所有的镜像文件拷贝到 /var/ftp/ 目录下; CentOS7 是镜像的总目录
-
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.orig
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum makecache
+yum install -y vim net-tools epel-release tmux bash-completion lrzsz nano wget git
 ```
 
-6.配置 Kickstart 并编辑 Kickstart 应答文件
+5. 设置时间同步
 
-(Kickstart 应答文件可以从新安装的 CentOS 的 root
- 目录下找到; 也可以用 system-config-kickstart 来生成) 
+查看同步情况，并检查时间
 
 ```bash
-# cp ~/anaconda-ks.cfg /var/ftp/pub/ks.cfg
-# chmod +r /var/ftp/pub/ks.cfg
-
-# vim /var/ftp/pub/ks.cfg 
-//将第6行的cdrom修改为：
- url --url=ftp://192.168.100.250
-//将第21行的时区修改为：
- timezone Asia/Shanghai --isUtc
-//将第28行修改为：
- clearpart --all --initlabel
+yum -y install chrony;systemctl start chronyd;systemctl status chronyd
+chronyc sources -v
+timedatectl
 ```
 
-7.重启所有服务并且设置开机自启
+6. 修改主机名
 
 ```bash
-# systemctl start dhcpd
-# systemctl enable dhcpd
-# systemctl start xinetd
-# systemctl enable xinetd
-# systemctl start vsftpd
-# systemctl enable vsftpd
+hostnamectl set-hostname centos7.skylens.co
+```
 
-//查看启动情况
-# systemctl status dhcpd
-# systemctl status xinetd
-# systemctl status vsftpd
+* 安装 Cobbler
+
+[参考](https://cobbler.github.io/manuals/quickstart/)
+
+[参考](http://www.zyops.com/autoinstall-cobbler/)
+
+[参考](https://www.ibm.com/developerworks/cn/linux/l-cobbler/index.html)
+
+[参考](https://www.jianshu.com/p/2e62cead05f4)
+
+[参考](http://www.cnblogs.com/shhnwangjian/p/5858900.html)
+
+[参考](https://www.centoshowtos.org/installation/kickstart-and-cobbler/)
+
+```bash
+yum install cobbler cobbler-web pykickstart httpd tftp dhcp xinetd fence-agents debmirror
+```
+
+* 配置
+
++ setting 配置
+
+生成加密密码
+
+```bash
+openssl passwd -1
+Password: 123456
+Verifying - Password: 123456
+$1$ruR7Phop$ra.MuVkEfBKuRQ7v.pAK9.
+```
+
+修改为如下内容
+
+```bash
+vim /etc/cobbler/setting
+
+manage_dhcp: 1
+
+manage_dns: 1
+
+pxe_just_once: 1
+
+server: 192.168.99.254
+
+next_server: 192.168.99.254
+
+# 使用 openssl 生成的加密密码
+default_password_crypted: $1$ruR7Phop$ra.MuVkEfBKuRQ7v.pAK9.
+```
+
++ dhcp 配置
+
+修改如下内容
+
+```bash
+vim /etc/cobbler/dhcp.template
+
+subnet 192.168.99.0 netmask 255.255.255.0 {
+     option routers             192.168.99.254;
+     option domain-name-servers 192.168.99.254;
+     option subnet-mask         255.255.255.0;
+     range dynamic-bootp        192.168.99.100 192.168.99.250;
+     default-lease-time         21600;
+     max-lease-time             43200;
+     next-server                $next_server;
 
 ```
 
-8.system-config-kickstart 生成 Kickstart 应答文件
++ debmirror 配置
+
+注释如下内容
 
 ```bash
-# yum install system-config-kickstart
+vim /etc/debmirror.conf
+
+# @dists=sid
+# @arches=i386
+```
+
++ tftp 配置
+
+/etc/xinetd.d/tftp
+
+`disable` 设置为 `no`
+
++ 下载启动文件
+
+```bash
+cobbler get-loaders
+```
+
++ 启动服务，检查配置，更新配置
+
+```bash
+systemctl start httpd ; systemctl enable httpd
+systemctl start cobblerd ; systemctl enable cobblerd
+systemctl start rsyncd ; systemctl enable rsyncd
+systemctl start xinetd ; systemctl enable xinetd
+
+cobbler check
+
+cobbler sync
+```
+
+* 管理 cobbler
+
++ 管理 distro
+
+```bash
+mount /dev/cdrome /mnt
+
+cobbler import --path=/mnt/ --name=CentOS-7.1 --arch=x86_64
+// 查看 distro
+cobbler distro list
+// 查看 distro 细节
+cobbler distro report --name=CentOS-7.1-x86_64
+```
+
++ 管理 profile
+
+```bash
+// 查看 profile， 导入 distro 会自动生成 profile
+cobbler profile list
+
+cobbler profile edit --name=CentOS-7.1-x86_64 --kickstart=/var/lib/cobbler/kickstarts/CentOS-7.1-x86_64.cfg
+cobbler profile edit --name=CentOS-7.1-x86_64 --kopts='net.ifnames=0 biosdevname=0'
+```
+
++ 管理 system
+
+```bash
+// 添加一个 system 对象
+cobbler system add --name=test --profile=CentOS-7.1-x86_64
+// 编辑指定 test 的参数 (指定接口、mac地址、ip地址、子网掩码、dns服务器、网关、主机名)
+cobbler system edit --name=test --interface=eth0 --mac=00:11:22:AA:BB:CC --ip-address=192.168.99.100 --netmask=255.255.255.0 --static=1 --dns-name=test.mydomain.com --gateway=192.168.1.1 --hostname=test.mydomain.com
+```
+
++ ks 文件
+
+```
+install
+url --url=$tree
+text
+lang en_US.UTF-8
+keyboard us
+zerombr
+bootloader --location=mbr --driveorder=sda --append="crashkernel=auto rhgb quiet"
+# Network information
+$SNIPPET('network_config')
+timezone --utc Asia/Shanghai
+authconfig --enableshadow --passalgo=sha512
+rootpw  --iscrypted $default_password_crypted
+clearpart --all --initlabel
+part /boot --fstype xfs --size 1024
+part swap --size 1024
+part / --fstype xfs --size 1 --grow
+firstboot --disable
+selinux --disabled
+firewall --disabled
+logging --level=info
+reboot
+
+%pre
+$SNIPPET('log_ks_pre')
+$SNIPPET('kickstart_start')
+$SNIPPET('pre_install_network_config')
+# Enable installation monitoring
+$SNIPPET('pre_anamon')
+%end
+
+%packages
 ```
