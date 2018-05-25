@@ -64,17 +64,11 @@ hostnamectl set-hostname centos7.skylens.co
 
 * 安装 Cobbler
 
-[参考](https://cobbler.github.io/manuals/quickstart/)
+[参考](https://cobbler.github.io/manuals/quickstart/)        [参考](http://www.zyops.com/autoinstall-cobbler/)
 
-[参考](http://www.zyops.com/autoinstall-cobbler/)
+[参考](https://www.ibm.com/developerworks/cn/linux/l-cobbler/index.html)        [参考](https://www.jianshu.com/p/2e62cead05f4)
 
-[参考](https://www.ibm.com/developerworks/cn/linux/l-cobbler/index.html)
-
-[参考](https://www.jianshu.com/p/2e62cead05f4)
-
-[参考](http://www.cnblogs.com/shhnwangjian/p/5858900.html)
-
-[参考](https://www.centoshowtos.org/installation/kickstart-and-cobbler/)
+[参考](http://www.cnblogs.com/shhnwangjian/p/5858900.html)        [参考](https://www.centoshowtos.org/installation/kickstart-and-cobbler/)
 
 ```bash
 yum install cobbler cobbler-web pykickstart httpd tftp dhcp xinetd fence-agents debmirror
