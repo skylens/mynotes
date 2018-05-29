@@ -33,7 +33,7 @@
 * [NetWork](chapters/chapter9-network.md)
 * [Cloud 私有网盘](chapters/chapter10-clouddisks.md)
 * [在线文档托管](chapters/chapter11-onlinfiles.md)
-* [Git 相关](chapters/chapter12-git.md)
+* [版本控制工具](chapters/chapter12-git.md)
 * [树莓派](chapters/chapter13-raspberrypi.md)
 * [JavaEE](chapters/chapter14-javaee.md)
 * [Flask](chapters/chapter15-flask.md)
