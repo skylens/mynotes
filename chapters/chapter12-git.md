@@ -1,4 +1,6 @@
-# git 相关
+# 版本控制工具
+
+## git 相关
 
 1.git 安装
 
@@ -125,3 +127,32 @@ Other
 [不要再为代码管理而头疼，GitHub是你最佳的选择！](http://cs.swfu.edu.cn/itf/?p=299)
 
 [学会用 git ](http://cs2.swfc.edu.cn/~wx672/lecture_notes/linux/tutorials/git.html)
+
+## svn 相关
+
+1. `svn` 服务器搭建
+
+```bash
+// 安装
+apt install subversion
+yum install subversion
+//创建仓库
+mkdir -v /opt/svnrepos/
+svnadmin create /opt/svnrepos/svndemo/
+//指定仓库的所有者及所属组
+chown -R skylens:staff /opt/svnrepos/svndemo/
+// 同组用户可读可写 并指定组 id
+chmod -R g+rws /opt/svnrepos/svndemo/
+```
+
+2. `svn` 简单命令
+
+```bash
+// 克隆仓库到本地
+svn co svn+ssh://ubuntu01@112.74.57.182/opt/svnrepos/svndemo  
+// 添加 (貌似只用执行一次)
+touch README.md
+svn add README.md
+// 提交代码
+svn commit -m '提交说明'
+```
