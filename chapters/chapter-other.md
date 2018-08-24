@@ -4,14 +4,10 @@
 
     * [package control](https://packagecontrol.io/)
 
-        sublime text 3 
 
-        ```
-        import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
-        ```
     * 插件
       ![link](http://www.tuicool.com/articles/E3a2Qni)
-        
+
         ChineseLocalizations  汉化
         ConvertToUTF8  中文乱码
         Emmet   html代码补全
@@ -30,7 +26,7 @@
     $ sudo apt-get install mpg123  //Linux/Unix 上的 mp3 播放器(必须安装)
     $ sudo apt-get install aria2  //用于缓存歌曲(有可以用来替换 wget )
     ​```
-    
+
     * 使用
     ​```bash
     $ musicbox  //vi 快捷键操作 'Space' == 暂停和播放
