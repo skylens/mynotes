@@ -153,6 +153,20 @@ $ unzip test.zip -d testd/  //解压 test.zip 到 testd 目录
 
 *Linux下解压zip中文乱码问题*
 
+- 方法一: 使用 `unzip` 指定字符集解压
+
+```bash
+unzip -O CP936 xxx.zip (CP936、GBK、GB18030都可以)
+```
+
+- 方法二: 使用 `unar` 解压
+
+```bash
+unar xxx.zip
+```
+
+- 方法三: 为 `p7zip` 打补丁，使用 `p7zip` 解压
+
 ```bash
 sudo pacman -S p7zip-natspec
 7za x LaTeX2e_manual.zip
