@@ -17,6 +17,8 @@ $ sudo passwd admin
 **2.`ssh`免密码登录**
 
 ```bash
+$ ssh-keygen -t ed25519 -C "xxxx@mail.com"
+$ ssh-keygen -t ecdsa -b 521 -C "xxxx@mail.com" 
 $ ssh-keygen -t rsa -b 4096 -C "xxxx@mail.com"  //生成的`id_rsa.pub`可以放到`coding、github、oschina`上
 $ ssh-keygen -f cloud.pem  //生成名为 cloud.pem 的密钥对
 $ ssh-copy-id -i <-i指定文件路径> <user>@<ip>
@@ -30,7 +32,7 @@ $ ssh-copy-id -i <-i指定文件路径> <user>@<ip>
 $ vim .ssh/config
 Host 主机别名
     HostName 主机名或者ip
-    Port 端口 
+    Port 端口
     User 用户名
     IdentityFile 密钥文件的路径
 $ ssh 主机别名
@@ -44,7 +46,7 @@ host git.coding.net
     HostName git.coding.net
     User git
     IdentityFile ~/.ssh/git.pem
-``` 
+```
 
 **4.[`proxychains4`](https://github.com/rofl0r/proxychains-ng)+ [`shadowsocks`](https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)代理上网**
 
@@ -55,7 +57,7 @@ $ tar -jxvf proxychains-4.10.tar.bz2
 $ cd proxychains-4.10
 $ ./configure --prefix=/usr --sysconfdir=/etc
 $ make
-$ sudo make install 
+$ sudo make install
 $ sudo make install-config
 ```
 
@@ -102,7 +104,7 @@ $ vim node.josn
 ```bash
 $ sudo sslocal -c node.json (Ctrl + c 结束 shadowsocks 代理)
 $ sudo proxychains4 ping www.google.com -c 3
-$ sudo proxychains4 apt-get update 
+$ sudo proxychains4 apt-get update
 ```
 
 **socks5 转 http**
@@ -127,7 +129,7 @@ forward-socks5 / localhost:1080
 + 启动服务
 
 ```bash
-sudo systemctl start privoxy.service 
+sudo systemctl start privoxy.service
 sudo systemctl status privoxy.service
 ```
 
@@ -145,9 +147,9 @@ $ sudo rm -i /etc/apt/sources.list.d/PPA_Name.list
 
 ```bash
 $ zip -r test.zip test/  //压缩 test 目录
-$ unzip -v test.zip  //查看 test.zip 中的文件，但不解压 
+$ unzip -v test.zip  //查看 test.zip 中的文件，但不解压
 $ unzip -t test.zip  //查看 test.zip 的完整性
-$ unzip test.zip  //解压 test.zip 
+$ unzip test.zip  //解压 test.zip
 $ unzip test.zip -d testd/  //解压 test.zip 到 testd 目录
 ```
 
@@ -182,11 +184,11 @@ $ 7za a -t7z test.7z test/   //压缩
 $ 7za x test.7z  //解压缩
 ```
 
-+ tar 
++ tar
 
 ```bash
 $ tar -cvf test.tar test/  //打包 test 目录
-$ tar -xvf test.tar  //解压 test.tar 
+$ tar -xvf test.tar  //解压 test.tar
 $ tar -tvf test.tar  //查看 test.tar 文件里的内容，但不解压( *.tar.gz 加 -z , *.tar.bz2 加 -j )
 $ tar -zcvf test.tar.gz test/  //打包 test 目录，并且以 gz 格式压缩
 $ tar -jcvf test.tar.bz2 test/  //打包 test 目录，并且以 bz2 格式压缩
@@ -205,7 +207,7 @@ $ tar -xvf test.tar  //再解包 tar 格式
 
 ```bash
 $ netstat -tln  //查看哪些端口被监听了
-$ 
+$
 ```
 
 **8.递归删除文件**
@@ -220,7 +222,7 @@ $ find . -name "要删的文件名" -exec rm {} \;   //把ls替换为rm就能�
 **9.lsof**
 
 ```bash
-$ lsof -i :389 
+$ lsof -i :389
 $ ps ef | grep ldap | grep -v grep
 $ nesttat -tunlp | grep 389
 ```
@@ -228,8 +230,8 @@ $ nesttat -tunlp | grep 389
 **10.修改默认 shell**
 
 ```shell
-$ echo $0   //查看当前 shell 
+$ echo $0   //查看当前 shell
 $ whereis bash   //查看 bash shell 的位置
 $ chsh -s /usr/local/bin/bash  //修改默认 shell 为 bash shell , 重新登陆生效
-$ exit 
+$ exit
 ```
