@@ -10,17 +10,18 @@
 # systemctl stop firewalld        //关闭
 # systemctl disable firewalld     //禁用
 # firewall-cmd --permanent --add-service=ssh                                   //允许 SSH
-# firewall-cmd --permanent --zone=public --add-port=22/tcp                     //允许 22 号端口
-# firewall-cmd --permanent --zone=public --add-port=80/tcp --add-port=80/udp   //开放80 tcp udp 端口
-# firewall-cmd --permanent --zone=public --add-port=60000-61000/udp             //开放60000到61000的端口范围
-# firewall-cmd --zone=public --query-port=80/tcp                    //检查是否生效
-# firewall-cmd --permanent --zone=public --remove-port=80/tcp                   //删除端口
-# firewall-cmd --permanent --zone=public --remove-service=ftp                  //删除 ftp 服务
+# firewall-cmd --permanent --add-port=22/tcp                 //允许 22 号端口
+# firewall-cmd --permanent --add-port=80/tcp --add-port=80/udp //开放80 tcp udp 端口
+# firewall-cmd --permanent --add-port=60000-61000/udp     //开放60000到61000的端口范围
+# firewall-cmd --query-port=80/tcp                    //检查是否生效
+# firewall-cmd --permanent --add-masquerade           //启动地址转换
+# firewall-cmd --permanent --remove-port=80/tcp                   //删除端口
+# firewall-cmd --permanent --remove-service=ftp                  //删除 ftp 服务
 # firewall-cmd --reload                         //重新加载配置
 # firewall-cmd --complete-reload
-# firewall-cmd --zone=public --list-ports       //显示当前开放的端口
-# firewall-cmd --zone=public --list-service     //显示当前开放的服务
-# firewall-cmd --zone=public --list-all 
+# firewall-cmd --list-ports       //显示当前开放的端口
+# firewall-cmd --list-service     //显示当前开放的服务
+# firewall-cmd --list-all 
 ```
 
 ### 切换至 iptables
